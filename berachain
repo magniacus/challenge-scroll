@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Compteur {
+    uint public compteur;
+
+    // Event pour notifier l'incrémentation du compteur
+    event CompteurIncremente(uint valeur);
+
+    // Constructor pour initialiser le compteur à 0
+    constructor() {
+        compteur = 0;
+    }
+
+    // Fonction pour incrémenter le compteur
+    function incrementer() public {
+        require(compteur < 100, "Le compteur ne peut pas depasser 100");
+        compteur += 1;
+        emit CompteurIncremente(compteur);
+    }
+}
